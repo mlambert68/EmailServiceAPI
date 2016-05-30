@@ -28,7 +28,7 @@ namespace LaCrosse.Inet.EmailServicesAPI.Utils
 
         public override bool CanWriteType(Type type)
         {
-            throw new NotImplementedException();
+            return false;                       
         }
         public async override Task<object> ReadFromStreamAsync(Type type, Stream readStream, HttpContent content, IFormatterLogger formatterLogger)
         {
@@ -39,7 +39,7 @@ namespace LaCrosse.Inet.EmailServicesAPI.Utils
             var EmailFileSet = await modelContent.ReadAsAsync<EmailMessageContent>();
 
             var fileContents = provider.Contents
-                .Where(c => c.Headers.ContentDisposition.Name.NormalizeName().Matches(@"image\d+"))
+                .Where(c => c.Headers.ContentDisposition.Name.NormalizeName().Matches(@"file\d+"))
                 .ToList();
 
             EmailFileSet.Attachments = new List<FileAttachment>();

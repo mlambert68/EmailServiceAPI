@@ -22,7 +22,7 @@ namespace LaCrosse.Inet.EmailServicesAPI
             //GlobalConfiguration.Configure(WebApiConfig.Register);
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-           
+            //FormatConfig.Register(GlobalConfiguration.Configuration);
         }
 
     }   
