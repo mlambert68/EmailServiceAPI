@@ -18,7 +18,7 @@ namespace LaCrosse.Inet.EmailServicesAPI.Controllers
     {
        
 
-        [Route("api/send")]
+        [Route("api/sendemail")]
         [HttpPost]
         private HttpResponseMessage SendEmail(EmailMessageContent sentEmail)
         /*void sendEmail(string strFrom
@@ -83,11 +83,11 @@ namespace LaCrosse.Inet.EmailServicesAPI.Controllers
         }
         [Route("api/test")]
         [HttpPost]
-        private String SendEmailTest([FromBody]widget sentEmail)
+        private String SendEmailTest([FromBody]EmailMessageContent sentEmail)
         {
             var sb = new StringBuilder();
             
-            sb.AppendFormat("Received email message from {0}: , To {1}, Subject {2}", sentEmail.ID, sentEmail.Name, sentEmail.Price);
+            sb.AppendFormat("Received email message from {0}: , To {1}, Subject {2}", sentEmail.From, sentEmail.To, sentEmail.Subject);
             //sentEmail.Attachments.ForEach(i =>
             //    sb.AppendFormat("Got attachment {0} of type {1} and size {2} bytes,", i.FileName, i.MimeType,
             //        i.FileData.Length)
